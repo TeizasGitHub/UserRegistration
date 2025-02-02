@@ -1,0 +1,39 @@
+<div class="header">
+  <img src="assets/logo.png" alt="IntraMed Meetings Logo" class="app-logo" />
+  <span>COMPLETE</span>
+</div>
+
+<div class="stepper">
+  <div
+    class="step"
+    [ngClass]="{ completed: currentStep > 1, active: currentStep === 1 }"
+  >
+    <span>1</span>
+    <p>REGISTER</p>
+  </div>
+  <div class="line" [ngClass]="{ completed: currentStep > 2 }"></div>
+
+  <div
+    class="step"
+    [ngClass]="{ completed: currentStep > 2, active: currentStep === 2 }"
+  >
+    <span>2</span>
+    <p>SUBMIT INFO</p>
+  </div>
+  <div class="line" [ngClass]="{ completed: currentStep === 3 }"></div>
+
+  <div
+    class="step"
+    [ngClass]="{ completed: currentStep === 3, active: currentStep === 3 }"
+  >
+    <span>3</span>
+    <p>COMPLETE</p>
+  </div>
+</div>
+<div class="thank-you-container">
+  <span>Thank you for registering!</span>
+  <p>
+    You should receive confirmation email momentarily containing additional
+    details.
+  </p>
+</div>

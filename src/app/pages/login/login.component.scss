@@ -1,0 +1,75 @@
+$light-blue: #2988b5;
+$dark-blue: #1b5875;
+$light-grey: #dedede;
+$dark-grey: #aaaaaa;
+$text-color: #555555;
+$red: #a93a44;
+$error-bg: #ffe8eb;
+
+.header {
+  width: 100%;
+  height: 50px; // Fixed height
+  background-color: #2988b5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 15px; // Ensures text stays within header
+}
+
+.login-container {
+  max-width: 465px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  height: 110px;
+
+  h2 {
+    color: #2988b5;
+  }
+
+  input {
+    width: 85%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: #2988b5;
+    color: white;
+    border: none;
+    font-weight: bold;
+    float: right;
+    width: 15%;
+  }
+
+  button:hover {
+    background-color: #1b5875;
+  }
+
+  label {
+    font-weight: bold;
+    color: #555555;
+    display: block;
+    margin-top: 10px;
+  }
+}
+.app-logo {
+  width: 150px; /* Adjust the width as needed */
+  height: auto;
+  margin: 20px;
+  position: absolute;
+  left: 0;
+}

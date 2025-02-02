@@ -1,0 +1,120 @@
+<div class="header">
+  <img src="assets/logo.png" alt="IntraMed Meetings Logo" class="app-logo" />
+  <span>CONTACT INFORMATION</span>
+</div>
+<div class="stepper">
+  <div
+    class="step"
+    [ngClass]="{ completed: currentStep > 1, active: currentStep === 1 }"
+  >
+    <span>1</span>
+    <p>REGISTER</p>
+  </div>
+  <div class="line" [ngClass]="{ completed: currentStep > 2 }"></div>
+
+  <div
+    class="step"
+    [ngClass]="{ completed: currentStep > 2, active: currentStep === 2 }"
+  >
+    <span>2</span>
+    <p>SUBMIT INFO</p>
+  </div>
+  <div class="line" [ngClass]="{ completed: currentStep === 3 }"></div>
+
+  <div
+    class="step"
+    [ngClass]="{ completed: currentStep === 3, active: currentStep === 3 }"
+  >
+    <span>3</span>
+    <p>COMPLETE</p>
+  </div>
+</div>
+
+<div class="registration-container">
+  <h2>Register</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <p>Please fill in the following required information.</p>
+    <div class="form-group">
+      <label  [ngClass]="isInvalid('firstName') ? 'error-text':''">First Name <span class="required">*</span></label>
+      <input
+        type="text"
+        formControlName="firstName"
+        class="form-control"
+        [class.error]="isInvalid('firstName')"
+      />
+      <span class="error-text" *ngIf="isInvalid('firstName')"
+        >First name is required</span
+      >
+    </div>
+
+    <div class="form-group">
+      <label  [ngClass]="isInvalid('lastName') ? 'error-text':''">Last Name <span class="required">*</span></label>
+      <input
+        type="text"
+        formControlName="lastName"
+        class="form-control"
+        [class.error]="isInvalid('lastName')"
+      />
+      <span class="error-text" *ngIf="isInvalid('lastName')"
+        >Last name is required</span
+      >
+    </div>
+
+    <div class="form-group">
+      <label  [ngClass]="isInvalid('email') ? 'error-text':''">Email <span class="required">*</span></label>
+      <input
+        type="email"
+        formControlName="email"
+        class="form-control"
+        [class.error]="isInvalid('email')"
+      />
+      <span class="error-text" *ngIf="isInvalid('email')"
+        >Enter a valid email</span
+      >
+    </div>
+
+    <div class="form-group">
+      <label  [ngClass]="isInvalid('confirmEmail') ? 'error-text':''">Confirm Email <span class="required">*</span></label>
+      <input
+        type="email"
+        formControlName="confirmEmail"
+        class="form-control"
+        [class.error]="isInvalid('confirmEmail')"
+      />
+      <span class="error-text" *ngIf="isInvalid('confirmEmail')"
+        >Emails must match</span
+      >
+    </div>
+
+    <div class="form-group">
+      <label [ngClass]="isInvalid('state') ? 'error-text':''" >State <span class="required">*</span></label>
+      <select
+        formControlName="state"
+        class="form-control"
+        [class.error]="isInvalid('state')"
+      >
+        <option value="">Select State</option>
+        <option *ngFor="let state of states" [value]="state">
+          {{ state }}
+        </option>
+      </select>
+      <span class="error-text" *ngIf="isInvalid('state')"
+        >State is required</span
+      >
+    </div>
+
+    <div class="checkbox-group">
+      <label>
+        <input type="checkbox" formControlName="subscribe" /> Subscribe to
+        Newsletter
+      </label>
+    </div>
+    <p>Please provide your email address.</p>
+    <p>All meeting correspondence will be sent via email.</p>
+    <button type="submit" class="btn-primary" [disabled]="registerForm.invalid">
+      Continue
+    </button>
+  </form>
+  <p *ngIf="emailSent">Email Sent Successfully!</p>
+</div>
